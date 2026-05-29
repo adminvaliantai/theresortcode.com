@@ -1,1 +1,250 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The Resort Code — All the Resort. None of the Price Tag.</title>
+  <script>
+    if (!sessionStorage.getItem('trc_optin_done')) {
+      window.location.href = 'https://deals.theresortcode.com/deals';
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --teal: #1A6B7C;
+      --teal-dark: #124f5c;
+      --teal-light: #2a8fa3;
+      --coral: #E8825A;
+      --coral-dark: #c96840;
+      --sand: #F5EFE0;
+      --white: #ffffff;
+      --text-dark: #1a1a1a;
+      --text-light: #777777;
+    }
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family: "DM Sans", sans-serif; background: var(--white); color: var(--text-dark); overflow-x: hidden; }
+    nav { background: var(--teal); padding: 14px 40px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; }
+    .nav-logo { display: flex; align-items: center; gap: 12px; }
+    .nav-badge { width: 40px; height: 40px; border-radius: 50%; background: var(--coral); color: var(--white); font-family: "Playfair Display", serif; font-size: 14px; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+    .nav-name { color: var(--white); font-size: 18px; font-weight: 600; }
+    .nav-links { display: flex; gap: 28px; }
+    .nav-links a { color: rgba(255,255,255,0.85); text-decoration: none; font-size: 14px; font-weight: 500; }
+    .nav-links a:hover { color: var(--coral); }
+    .nav-cta { background: var(--coral); color: var(--white); padding: 9px 20px; border-radius: 6px; text-decoration: none; font-size: 14px; font-weight: 600; }
+    .ticker { background: var(--coral); padding: 10px 0; overflow: hidden; }
+    .ticker-track { display: flex; gap: 60px; white-space: nowrap; animation: ticker 30s linear infinite; }
+    .ticker-track span { color: var(--white); font-size: 13px; font-weight: 500; }
+    .ticker-track span::before { content: "✈ "; }
+    @keyframes ticker { 0%{ transform: translateX(0); } 100%{ transform: translateX(-50%); } }
+    .hero { background: linear-gradient(135deg, var(--teal-dark) 0%, var(--teal) 60%, var(--teal-light) 100%); padding: 80px 40px; text-align: center; position: relative; overflow: hidden; }
+    .hero-tag { display: inline-block; background: rgba(255,255,255,0.15); color: var(--sand); font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; padding: 6px 16px; border-radius: 99px; margin-bottom: 20px; }
+    .hero h1 { font-family: "Playfair Display", serif; font-size: clamp(36px, 6vw, 68px); font-weight: 900; color: var(--white); line-height: 1.1; margin-bottom: 16px; }
+    .hero h1 span { color: var(--coral); }
+    .hero p { color: rgba(255,255,255,0.8); font-size: 18px; max-width: 560px; margin: 0 auto 36px; line-height: 1.6; }
+    .btn-primary { background: var(--coral); color: var(--white); padding: 14px 32px; border-radius: 8px; text-decoration: none; font-size: 15px; font-weight: 600; display: inline-block; }
+    .section { padding: 64px 40px; }
+    .section-alt { background: var(--sand); }
+    .section-header { text-align: center; margin-bottom: 40px; }
+    .section-tag { display: inline-block; background: var(--coral); color: var(--white); font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 5px 14px; border-radius: 99px; margin-bottom: 12px; }
+    .section-tag.teal { background: var(--teal); }
+    .section-title { font-family: "Playfair Display", serif; font-size: clamp(28px, 4vw, 42px); font-weight: 700; color: var(--text-dark); line-height: 1.2; }
+    .section-sub { color: var(--text-light); font-size: 16px; margin-top: 10px; }
+    .wg-feature { max-width: 1000px; margin: 0 auto; border-radius: 16px; overflow: hidden; box-shadow: 0 20px 60px rgba(26,107,124,0.15); position: relative; }
+    .wg-img { width: 100%; height: 520px; object-fit: cover; display: block; }
+    .wg-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(18,79,92,0.92) 0%, rgba(18,79,92,0.4) 50%, transparent 100%); display: flex; flex-direction: column; justify-content: flex-end; padding: 40px; }
+    .wg-badge { display: inline-block; background: var(--coral); color: var(--white); font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 5px 14px; border-radius: 99px; margin-bottom: 14px; width: fit-content; }
+    .wg-title { font-family: "Playfair Display", serif; font-size: clamp(34px, 5vw, 54px); font-weight: 900; color: #ffffff; line-height: 1.1; margin-bottom: 14px; text-shadow: 0 2px 12px rgba(0,0,0,0.8); }
+    .wg-title span { color: var(--coral); }
+    .wg-perks { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 24px; }
+    .wg-perk { background: rgba(0,0,0,0.35); color: #ffffff; font-size: 13px; font-weight: 700; padding: 5px 14px; border-radius: 99px; border: 1px solid rgba(255,255,255,0.5); }
+    .wg-cta { display: inline-block; background: var(--coral); color: var(--white); padding: 16px 40px; border-radius: 8px; text-decoration: none; font-size: 16px; font-weight: 700; width: fit-content; }
+    .partners-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; max-width: 1200px; margin: 0 auto; }
+    .partners-grid .partner-card { flex: 0 1 240px; }
+    .partner-card { background: var(--white); border: 1px solid #e0d8c8; border-radius: 12px; padding: 28px 24px; text-align: center; transition: transform 0.2s; }
+    .partner-card:hover { transform: translateY(-3px); }
+    .partner-logo-wrap { width: 100%; height: 60px; display: flex; align-items: center; justify-content: center; margin-bottom: 14px; }
+    .partner-logo-wrap img { max-width: 140px; max-height: 50px; object-fit: contain; display: block; }
+    .partner-name { font-size: 18px; font-weight: 700; color: var(--text-dark); margin-bottom: 10px; }
+    .partner-desc { font-size: 14px; color: var(--text-dark); margin-bottom: 18px; line-height: 1.5; }
+    .partner-btn { display: inline-block; background: var(--teal); color: var(--white); padding: 9px 22px; border-radius: 6px; text-decoration: none; font-size: 13px; font-weight: 600; }
+    .partner-btn.coral { background: var(--coral); }
+    .cc-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; max-width: 900px; margin: 0 auto; }
+    .cc-grid .cc-card { flex: 0 1 300px; }
+    .cc-card { background: var(--white); border: 1px solid #e0d8c8; border-radius: 12px; padding: 28px 24px; }
+    .cc-icon { font-size: 32px; margin-bottom: 12px; }
+    .cc-name { font-size: 20px; font-weight: 700; color: var(--text-dark); margin-bottom: 10px; }
+    .cc-perks { font-size: 15px; color: var(--text-dark); line-height: 1.6; }
+    .signup-section { background: var(--teal); padding: 64px 40px; text-align: center; }
+    .signup-section h2 { font-family: "Playfair Display", serif; font-size: clamp(28px, 4vw, 40px); font-weight: 700; color: var(--white); margin-bottom: 10px; }
+    .signup-section p { color: rgba(255,255,255,0.8); font-size: 16px; margin-bottom: 28px; }
+    .signup-btn { display: inline-block; background: var(--coral); color: var(--white); padding: 16px 40px; border-radius: 8px; text-decoration: none; font-size: 16px; font-weight: 700; }
+    .signup-note { color: rgba(255,255,255,0.6); font-size: 12px; margin-top: 16px; }
+    .social-bar { background: var(--sand); padding: 48px 40px; text-align: center; }
+    .social-bar h3 { font-family: "Playfair Display", serif; font-size: 24px; font-weight: 700; color: var(--text-dark); margin-bottom: 8px; }
+    .social-bar p { color: var(--text-light); font-size: 15px; margin-bottom: 24px; }
+    .social-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .soc-btn { background: var(--teal); color: var(--white); padding: 10px 22px; border-radius: 7px; text-decoration: none; font-size: 14px; font-weight: 600; }
+    footer { background: var(--teal-dark); padding: 40px 40px 24px; }
+    .footer-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 32px; flex-wrap: wrap; padding-bottom: 28px; border-bottom: 1px solid rgba(255,255,255,0.15); margin-bottom: 20px; }
+    .f-logo { display: flex; align-items: center; gap: 12px; }
+    .f-badge { width: 44px; height: 44px; border-radius: 50%; background: var(--coral); color: var(--white); font-family: "Playfair Display", serif; font-size: 14px; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+    .f-name { color: var(--white); font-size: 17px; font-weight: 700; }
+    .f-slogan { color: rgba(255,255,255,0.6); font-size: 12px; margin-top: 2px; }
+    .f-links { list-style: none; display: flex; gap: 24px; flex-wrap: wrap; }
+    .f-links a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 14px; }
+    .f-links a:hover { color: var(--coral); }
+    .footer-bottom { color: #D4B896; font-size: 12px; line-height: 1.7; }
+    @media(max-width: 640px) { nav { padding: 12px 20px; } .nav-links { display: none; } .section { padding: 48px 20px; } .hero { padding: 60px 20px; } }
+  </style>
+</head>
+<body><nav>
+    <div class="nav-logo">
+      <div class="nav-badge">TRC</div>
+      <span class="nav-name">The Resort Code</span>
+    </div>
+    <div class="nav-links">
+      <a href="#deals">Resort Deals</a>
+      <a href="#travel">Travel Partners</a>
+      <a href="#cards">Travel Cards</a>
+      <a href="#signup">Get Deals</a>
+    </div>
+    <a href="https://www.westgatereservations.com/55532071143" class="nav-cta" target="_blank">Browse Resort Deals</a>
+  </nav>
+
+  <div class="ticker">
+    <div class="ticker-track">
+      <span>Branson from $199</span><span>Cocoa Beach from $199</span><span>Orlando Universal from $399</span><span>Las Vegas from $249</span><span>Myrtle Beach from $99</span><span>Miami from $219</span><span>Gatlinburg from $159</span><span>River Ranch from $99</span><span>Branson from $199</span><span>Cocoa Beach from $199</span><span>Orlando Universal from $399</span><span>Las Vegas from $249</span><span>Myrtle Beach from $99</span><span>Miami from $219</span><span>Gatlinburg from $159</span><span>River Ranch from $99</span>
+    </div>
+  </div>
+
+  <section class="hero">
+    <div class="hero-tag">Handpicked Travel Deals</div>
+    <h1>All the Resort.<br/><span>None of the Price Tag.</span></h1>
+    <p>We hunt the best travel deals across every major platform so your family does not have to.</p>
+    <a href="https://www.westgatereservations.com/55532071143" class="btn-primary" target="_blank">Browse Resort Deals</a>
+  </section>
+
+  <section class="section" id="deals">
+    <div class="section-header">
+      <div class="section-tag">Featured Partner</div>
+      <div class="section-title">This Week's Resort Deals</div>
+      <div class="section-sub">Handpicked stays starting at $79. No resort fees. No parking fees. Free cancellation.</div>
+    </div>
+    <div class="wg-feature">
+      <img class="wg-img" src="las_vegas.png" alt="Luxury resort"/>
+      <div class="wg-overlay">
+        <div class="wg-badge">Official Resort Partner</div>
+        <div class="wg-title">Resort Vacations<br/>Starting at <span>$79</span></div>
+        <div class="wg-perks">
+          <span class="wg-perk">No Resort Fees</span>
+          <span class="wg-perk">No Parking Fees</span>
+          <span class="wg-perk">Free Cancellation</span>
+          <span class="wg-perk">Best Price Guaranteed</span>
+          <span class="wg-perk">Open Date Packages</span>
+        </div>
+        <a href="https://www.westgatereservations.com/55532071143" class="wg-cta" target="_blank">Browse All Resort Deals</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="travel">
+    <div class="section-header">
+      <div class="section-tag teal">Travel Partners</div>
+      <div class="section-title">More Ways to Save</div>
+      <div class="section-sub">Flights, hotels, tours, and experiences through our trusted travel partners.</div>
+    </div>
+    <div class="partners-grid">
+      <div class="partner-card">
+        <div class="partner-logo-wrap"><img src="Expedia_Logo.jpg" alt="Expedia"/></div>
+        <div class="partner-name">Expedia</div>
+        <div class="partner-desc">Flights, hotels, and vacation packages worldwide. Bundle and save more on every trip.</div>
+        <a href="https://expedia.com/affiliate/xtvydDG" class="partner-btn" target="_blank">Find Packages</a>
+      </div>
+      <div class="partner-card">
+        <div class="partner-logo-wrap"><img src="klook.png" alt="Klook"/></div>
+        <div class="partner-name">Klook</div>
+        <div class="partner-desc">Tours, experiences, and activities at your destination. Best rates on Asia-Pacific adventures.</div>
+        <a href="https://dub.sh/klook.resortcode" class="partner-btn coral" target="_blank">Book Experiences</a>
+      </div>
+      <div class="partner-card">
+        <div class="partner-logo-wrap"><img src="skyscanner.png" alt="Skyscanner"/></div>
+        <div class="partner-name">Skyscanner</div>
+        <div class="partner-desc">Search and compare flights across every major airline worldwide. Find the best fares fast.</div>
+        <a href="#" class="partner-btn" style="pointer-events:none; opacity:0.5;">Coming Soon</a>
+      </div>
+      <div class="partner-card">
+        <div class="partner-logo-wrap"><img src="viator.png" alt="Viator"/></div>
+        <div class="partner-name">Viator</div>
+        <div class="partner-desc">Tours, day trips, and experiences worldwide. Skip-the-line tickets and instant confirmation.</div>
+        <a href="#" class="partner-btn coral" style="pointer-events:none; opacity:0.5;">Coming Soon</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="cards">
+    <div class="section-header">
+      <div class="section-tag">Earn While You Travel</div>
+      <div class="section-title">Top Travel Credit Cards</div>
+      <div class="section-sub">Stack points, earn miles, and get perks that pay for your next vacation.</div>
+    </div>
+    <div class="cc-grid">
+      <div class="cc-card">
+        <div class="cc-icon">💳</div>
+        <div class="cc-name">Chase Sapphire Preferred</div>
+        <div class="cc-perks">3x points on dining and travel. 60,000 bonus points after minimum spend. Transfer to 14 airline and hotel partners. $95 annual fee.</div>
+        <a href="CHASE_LINK_HERE" target="_blank" style="display:inline-block; margin-top:14px; background:#E8825A; color:#fff; padding:10px 26px; border-radius:6px; text-decoration:none; font-size:15px; font-weight:700;">Apply Now</a>
+      </div>
+      <div class="cc-card">
+        <div class="cc-icon">💳</div>
+        <div class="cc-name">Capital One Venture</div>
+        <div class="cc-perks">2x miles on every single purchase. No category thinking required. Redeem on any travel with no blackout dates. $95 annual fee.</div>
+        <a href="CAPITAL_ONE_LINK_HERE" target="_blank" style="display:inline-block; margin-top:14px; background:#E8825A; color:#fff; padding:10px 26px; border-radius:6px; text-decoration:none; font-size:15px; font-weight:700;">Apply Now</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="signup-section" id="signup">
+    <h2>Get This Week's Deals in Your Inbox</h2>
+    <p>New travel deals every week. Resorts, flights, tours, and more. No spam. Unsubscribe anytime.</p>
+    <a href="https://deals.theresortcode.com/deals" class="signup-btn" target="_blank">Subscribe for Weekly Deals</a>
+    <div class="signup-note">Check your spam folder to make sure you see our emails.</div>
+  </section>
+
+  <div class="social-bar">
+    <h3>Big Resort Energy. Real Savings.</h3>
+    <p>Follow @theresortcode for daily deal drops.</p>
+    <div class="social-row">
+      <a href="https://tiktok.com/@theresortcode" target="_blank" class="soc-btn">TikTok</a>
+      <a href="https://www.instagram.com/resort.traveldeals/" target="_blank" class="soc-btn">Instagram</a>
+      <a href="https://www.facebook.com/profile.php?id=61575905832854" target="_blank" class="soc-btn">Facebook</a>
+      <a href="https://pinterest.com/theresortcode" target="_blank" class="soc-btn">Pinterest</a>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-top">
+      <div class="f-logo">
+        <div class="f-badge">TRC</div>
+        <div>
+          <div class="f-name">The Resort Code</div>
+          <div class="f-slogan">All the resort. None of the price tag.</div>
+        </div>
+      </div>
+      <ul class="f-links">
+        <li><a href="#deals">Resort Deals</a></li>
+        <li><a href="#travel">Travel Partners</a></li>
+        <li><a href="#cards">Travel Cards</a></li>
+        <li><a href="#signup">Newsletter</a></li>
+      </ul>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2026 The Resort Code. A DBA of OT Global Ventures LLC. All rights reserved.<br/>
+      Some links on this site are affiliate links. We may earn a small commission when you book, at no extra cost to you.<br/>
+      Resort deals are shared by an Independent Travel Partner.
+    </div>
+  </footer>
+
+</body>
+</html>
