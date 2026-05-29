@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,12 +6,12 @@
   <title>The Resort Code — All the Resort. None of the Price Tag.</title>
   <script>
     var params = new URLSearchParams(window.location.search);
-if (params.get('optin') === 'done') {
-  sessionStorage.setItem('trc_optin_done', 'true');
-}
-if (!sessionStorage.getItem('trc_optin_done')) {
-  window.location.href = 'https://deals.theresortcode.com/deals';
-}
+    if (params.get('optin') === 'done') {
+      sessionStorage.setItem('trc_optin_done', 'true');
+    }
+    if (!sessionStorage.getItem('trc_optin_done')) {
+      window.location.href = 'https://deals.theresortcode.com/deals';
+    }
   </script>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
   <style>
@@ -74,12 +73,12 @@ if (!sessionStorage.getItem('trc_optin_done')) {
     .partner-desc { font-size: 14px; color: var(--text-dark); margin-bottom: 18px; line-height: 1.5; }
     .partner-btn { display: inline-block; background: var(--teal); color: var(--white); padding: 9px 22px; border-radius: 6px; text-decoration: none; font-size: 13px; font-weight: 600; }
     .partner-btn.coral { background: var(--coral); }
-    .cc-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; max-width: 900px; margin: 0 auto; }
-    .cc-grid .cc-card { flex: 0 1 300px; }
+    .cc-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; max-width: 1000px; margin: 0 auto; }
+    .cc-grid .cc-card { flex: 0 1 260px; }
     .cc-card { background: var(--white); border: 1px solid #e0d8c8; border-radius: 12px; padding: 28px 24px; }
     .cc-icon { font-size: 32px; margin-bottom: 12px; }
-    .cc-name { font-size: 20px; font-weight: 700; color: var(--text-dark); margin-bottom: 10px; }
-    .cc-perks { font-size: 15px; color: var(--text-dark); line-height: 1.6; }
+    .cc-name { font-size: 18px; font-weight: 700; color: var(--text-dark); margin-bottom: 10px; }
+    .cc-perks { font-size: 14px; color: var(--text-dark); line-height: 1.6; }
     .signup-section { background: var(--teal); padding: 64px 40px; text-align: center; }
     .signup-section h2 { font-family: "Playfair Display", serif; font-size: clamp(28px, 4vw, 40px); font-weight: 700; color: var(--white); margin-bottom: 10px; }
     .signup-section p { color: rgba(255,255,255,0.8); font-size: 16px; margin-bottom: 28px; }
@@ -103,7 +102,8 @@ if (!sessionStorage.getItem('trc_optin_done')) {
     @media(max-width: 640px) { nav { padding: 12px 20px; } .nav-links { display: none; } .section { padding: 48px 20px; } .hero { padding: 60px 20px; } }
   </style>
 </head>
-<body><nav>
+<body>
+  <nav>
     <div class="nav-logo">
       <div class="nav-badge">TRC</div>
       <span class="nav-name">The Resort Code</span>
@@ -116,20 +116,17 @@ if (!sessionStorage.getItem('trc_optin_done')) {
     </div>
     <a href="https://www.westgatereservations.com/55532071143" class="nav-cta" target="_blank">Browse Resort Deals</a>
   </nav>
-
   <div class="ticker">
     <div class="ticker-track">
       <span>Branson from $199</span><span>Cocoa Beach from $199</span><span>Orlando Universal from $399</span><span>Las Vegas from $249</span><span>Myrtle Beach from $99</span><span>Miami from $219</span><span>Gatlinburg from $159</span><span>River Ranch from $99</span><span>Branson from $199</span><span>Cocoa Beach from $199</span><span>Orlando Universal from $399</span><span>Las Vegas from $249</span><span>Myrtle Beach from $99</span><span>Miami from $219</span><span>Gatlinburg from $159</span><span>River Ranch from $99</span>
     </div>
   </div>
-
   <section class="hero">
     <div class="hero-tag">Handpicked Travel Deals</div>
     <h1>All the Resort.<br/><span>None of the Price Tag.</span></h1>
     <p>We hunt the best travel deals across every major platform so your family does not have to.</p>
     <a href="https://www.westgatereservations.com/55532071143" class="btn-primary" target="_blank">Browse Resort Deals</a>
   </section>
-
   <section class="section" id="deals">
     <div class="section-header">
       <div class="section-tag">Featured Partner</div>
@@ -152,7 +149,6 @@ if (!sessionStorage.getItem('trc_optin_done')) {
       </div>
     </div>
   </section>
-
   <section class="section section-alt" id="travel">
     <div class="section-header">
       <div class="section-tag teal">Travel Partners</div>
@@ -176,18 +172,17 @@ if (!sessionStorage.getItem('trc_optin_done')) {
         <div class="partner-logo-wrap"><img src="skyscanner.png" alt="Skyscanner"/></div>
         <div class="partner-name">Skyscanner</div>
         <div class="partner-desc">Search and compare flights across every major airline worldwide. Find the best fares fast.</div>
-        <a href="https://theresortcode.com" class="partner-btn">Book Flights</a>
+        <a href="https://theresortcode.com" class="partner-btn" target="_blank">Book Flights</a>
       </div>
       <div class="partner-card">
         <div class="partner-logo-wrap"><img src="viator.png" alt="Viator"/></div>
         <div class="partner-name">Viator</div>
         <div class="partner-desc">Tours, day trips, and experiences worldwide. Skip-the-line tickets and instant confirmation.</div>
-        <a href="https://theresortcode.com" class="partner-btn coral">Book Tours</a>
+        <a href="https://theresortcode.com" class="partner-btn coral" target="_blank">Book Tours</a>
       </div>
     </div>
   </section>
-
-  <section class="section" id="cards">     <div class="section-header">       <div class="section-tag">Earn While You Travel</div>       <div class="section-title">Top Travel Credit Cards</div>       <div class="section-sub">Stack points, earn miles, and get perks that pay for your next vacation.</div>     </div>     <div class="cc-grid">       <div class="cc-card">         <div class="cc-icon">💳</div>         <div class="cc-name">Capital One Venture X</div>         <div class="cc-perks">10x miles on hotels and car rentals booked through Capital One Travel. 75,000 bonus miles after minimum spend. $300 annual travel credit. $395 annual fee.</div>         <a href="https://theresortcode.com" target="_blank" style="display:inline-block; margin-top:14px; background:#E8825A; color:#fff; padding:10px 26px; border-radius:6px; text-decoration:none; font-size:15px; font-weight:700;">Apply Now</a>       </div>       <div class="cc-card">         <div class="cc-icon">💳</div>         <div class="cc-name">Capital One Venture</div>         <div class="cc-perks">2x miles on every single purchase. No category thinking required. Redeem on any travel with no blackout dates. $95 annual fee.</div>         <a href="https://theresortcode.com" target="_blank" style="display:inline-block; margin-top:14px; background:#E8825A; color:#fff; padding:10px 26px; border-radius:6px; text-decoration:none; font-size:15px; font-weight:700;">Apply Now</a>       </div>       <div class="cc-card">         <div class="cc-icon">💳</div>         <div class="cc-name">Chase Sapphire Preferred</div>         <div class="cc-perks">3x points on dining and travel. 60,000 bonus points after minimum spend. Transfer to 14 airline and hotel partners. $95 annual fee.</div>         <a href="https://theresortcode.com" target="_blank" style="display:inline-block; margin-top:14px; background:#E8825A; color:#fff; padding:10px 26px; border-radius:6px; text-decoration:none; font-size:15px; font-weight:700;">Apply Now</a>       </div>     </div>   </section>     <div class="section-header">       <div class="section-tag">Earn While You Travel</div>       <div class="section-title">Top Travel Credit Cards</div>       <div class="section-sub">Stack points, earn miles, and get perks that pay for your next vacation.</div>     </div>     <div class="cc-grid">       <div class="cc-card">         <div class="cc-icon">💳</div>         <div class="cc-name">Capital One Venture X</div>         <div class="cc-perks">10x miles on hotels and car rentals booked through Capital One Travel. 75,000 bonus miles after minimum spend. $300 annual travel credit. $395 annual fee.</div>         <a href="https://theresortcode.com" target="_blank" style="display:inline-block; margin-top:14px; background:#E8825A; color:#fff; padding:10px 26px; border-radius:6px; text-decoration:none; font-size:15px; font-weight:700;">Apply Now</a>       </div>       <div class="cc-card">         <div class="cc-icon">💳</div>         <div class="cc-name">Capital One Venture</div>         <div class="cc-perks">2x miles on every single purchase. No category thinking required. Redeem on any travel with no blackout dates. $95 annual fee.</div>         <a href="https://theresortcode.com" target="_blank" style="display:inline-block; margin-top:14px; background:#E8825A; color:#fff; padding:10px 26px; border-radius:6px; text-decoration:none; font-size:15px; font-weight:700;">Apply Now</a>       </div>       <div class="cc-card">         <div class="cc-icon">💳</div>         <div class="cc-name">Chase Sapphire Preferred</div>         <div class="cc-perks">3x points on dining and travel. 60,000 bonus points after minimum spend. Transfer to 14 airline and hotel partners. $95 annual fee.</div>         <a href="https://theresortcode.com" target="_blank" style="display:inline-block; margin-top:14px; background:#E8825A; color:#fff; padding:10px 26px; border-radius:6px; text-decoration:none; font-size:15px; font-weight:700;">Apply Now</a>       </div>     </div>   </section>     <div class="section-header">       <div class="section-tag">Earn While You Travel</div>       <div class="section-title">Top Travel Credit Cards</div>       <div class="section-sub">Stack points, earn miles, and get perks that pay for your next vacation.</div>     </div>     <div class="cc-grid">       <div class="cc-card">         <div class="cc-icon">💳</div>         <div class="cc-name">Capital One Venture X</div>         <div class="cc-perks">10x miles on hotels and car rentals booked through Capital One Travel. 75,000 bonus miles after minimum spend. $300 annual travel credit. $395 annual fee.</div>         <a href="https://theresortcode.com" target="_blank" style="display:inline-block; margin-top:14px; background:#E8825A; color:#fff; padding:10px 26px; border-radius:6px; text-decoration:none; font-size:15px; font-weight:700;">Apply Now</a>       </div>       <div class="cc-card">         <div class="cc-icon">💳</div>         <div class="cc-name">Capital One Venture</div>         <div class="cc-perks">2x miles on every single purchase. No category thinking required. Redeem on any travel with no blackout dates. $95 annual fee.</div>         <a href="https://theresortcode.com" target="_blank" style="display:inline-block; margin-top:14px; background:#E8825A; color:#fff; padding:10px 26px; border-radius:6px; text-decoration:none; font-size:15px; font-weight:700;">Apply Now</a>       </div>       <div class="cc-card">         <div class="cc-icon">💳</div>         <div class="cc-name">Chase Sapphire Preferred</div>         <div class="cc-perks">3x points on dining and travel. 60,000 bonus points after minimum spend. Transfer to 14 airline and hotel partners. $95 annual fee.</div>         <a href="https://theresortcode.com" target="_blank" style="display:inline-block; margin-top:14px; background:#E8825A; color:#fff; padding:10px 26px; border-radius:6px; text-decoration:none; font-size:15px; font-weight:700;">Apply Now</a>       </div>     </div>   </section>     <div class="section-header">       <div class="section-tag">Earn While You Travel</div>       <div class="section-title">Top Travel Credit Cards</div>       <div class="section-sub">Stack points, earn miles, and get perks that pay for your next vacation.</div>     </div>     <div class="cc-grid">       <div class="cc-card">         <div class="cc-icon">💳</div>         <div class="cc-name">Capital One Venture X</div>         <div class="cc-perks">10x miles on hotels and car rentals booked through Capital One Travel. 75,000 bonus miles after minimum spend. $300 annual travel credit. $395 annual fee.</div>         <a href="https://theresortcode.com" target="_blank" style="display:inline-block; margin-top:14px; background:#E8825A; color:#fff; padding:10px 26px; border-radius:6px; text-decoration:none; font-size:15px; font-weight:700;">Apply Now</a>       </div>       <div class="cc-card">         <div class="cc-icon">💳</div>         <div class="cc-name">Capital One Venture</div>         <div class="cc-perks">2x miles on every single purchase. No category thinking required. Redeem on any travel with no blackout dates. $95 annual fee.</div>         <a href="https://theresortcode.com" target="_blank" style="display:inline-block; margin-top:14px; background:#E8825A; color:#fff; padding:10px 26px; border-radius:6px; text-decoration:none; font-size:15px; font-weight:700;">Apply Now</a>       </div>       <div class="cc-card">         <div class="cc-icon">💳</div>         <div class="cc-name">Chase Sapphire Preferred</div>         <div class="cc-perks">3x points on dining and travel. 60,000 bonus points after minimum spend. Transfer to 14 airline and hotel partners. $95 annual fee.</div>         <a href="https://theresortcode.com" target="_blank" style="display:inline-block; margin-top:14px; background:#E8825A; color:#fff; padding:10px 26px; border-radius:6px; text-decoration:none; font-size:15px; font-weight:700;">Apply Now</a>       </div>     </div>   </section>     <div class="section-header">       <div class="section-tag">Earn While You Travel</div>       <div class="section-title">Top Travel Credit Cards</div>       <div class="section-sub">Stack points, earn miles, and get perks that pay for your next vacation.</div>     </div>     <div class="cc-grid">       <div class="cc-card">         <div class="cc-icon">💳</div>         <div class="cc-name">Capital One Venture X</div>         <div class="cc-perks">10x miles on hotels and car rentals booked through Capital One Travel. 75,000 bonus miles after minimum spend. $300 annual travel credit. $395 annual fee.</div>         <a href="https://theresortcode.com" target="_blank" style="display:inline-block; margin-top:14px; background:#E8825A; color:#fff; padding:10px 26px; border-radius:6px; text-decoration:none; font-size:15px; font-weight:700;">Apply Now</a>       </div>       <div class="cc-card">         <div class="cc-icon">💳</div>         <div class="cc-name">Capital One Venture</div>         <div class="cc-perks">2x miles on every single purchase. No category thinking required. Redeem on any travel with no blackout dates. $95 annual fee.</div>         <a href="https://theresortcode.com" target="_blank" style="display:inline-block; margin-top:14px; background:#E8825A; color:#fff; padding:10px 26px; border-radius:6px; text-decoration:none; font-size:15px; font-weight:700;">Apply Now</a>       </div>       <div class="cc-card">         <div class="cc-icon">💳</div>         <div class="cc-name">Chase Sapphire Preferred</div>         <div class="cc-perks">3x points on dining and travel. 60,000 bonus points after minimum spend. Transfer to 14 airline and hotel partners. $95 annual fee.</div>         <a href="https://theresortcode.com" target="_blank" style="display:inline-block; margin-top:14px; background:#E8825A; color:#fff; padding:10px 26px; border-radius:6px; text-decoration:none; font-size:15px; font-weight:700;">Apply Now</a>       </div>     </div>   </section>
+  <section class="section" id="cards">
     <div class="section-header">
       <div class="section-tag">Earn While You Travel</div>
       <div class="section-title">Top Travel Credit Cards</div>
@@ -196,26 +191,30 @@ if (!sessionStorage.getItem('trc_optin_done')) {
     <div class="cc-grid">
       <div class="cc-card">
         <div class="cc-icon">💳</div>
-        <div class="cc-name">Chase Sapphire Preferred</div>
-        <div class="cc-perks">3x points on dining and travel. 60,000 bonus points after minimum spend. Transfer to 14 airline and hotel partners. $95 annual fee.</div>
-        <a href="CHASE_LINK_HERE" target="_blank" style="display:inline-block; margin-top:14px; background:#E8825A; color:#fff; padding:10px 26px; border-radius:6px; text-decoration:none; font-size:15px; font-weight:700;">Apply Now</a>
+        <div class="cc-name">Capital One Venture X</div>
+        <div class="cc-perks">10x miles on hotels and car rentals booked through Capital One Travel. 75,000 bonus miles after minimum spend. $300 annual travel credit. $395 annual fee.</div>
+        <a href="https://theresortcode.com" target="_blank" style="display:inline-block; margin-top:14px; background:#E8825A; color:#fff; padding:10px 26px; border-radius:6px; text-decoration:none; font-size:14px; font-weight:700;">Apply Now</a>
       </div>
       <div class="cc-card">
         <div class="cc-icon">💳</div>
         <div class="cc-name">Capital One Venture</div>
         <div class="cc-perks">2x miles on every single purchase. No category thinking required. Redeem on any travel with no blackout dates. $95 annual fee.</div>
-        <a href="CAPITAL_ONE_LINK_HERE" target="_blank" style="display:inline-block; margin-top:14px; background:#E8825A; color:#fff; padding:10px 26px; border-radius:6px; text-decoration:none; font-size:15px; font-weight:700;">Apply Now</a>
+        <a href="https://theresortcode.com" target="_blank" style="display:inline-block; margin-top:14px; background:#E8825A; color:#fff; padding:10px 26px; border-radius:6px; text-decoration:none; font-size:14px; font-weight:700;">Apply Now</a>
+      </div>
+      <div class="cc-card">
+        <div class="cc-icon">💳</div>
+        <div class="cc-name">Chase Sapphire Preferred</div>
+        <div class="cc-perks">3x points on dining and travel. 60,000 bonus points after minimum spend. Transfer to 14 airline and hotel partners. $95 annual fee.</div>
+        <a href="https://theresortcode.com" target="_blank" style="display:inline-block; margin-top:14px; background:#E8825A; color:#fff; padding:10px 26px; border-radius:6px; text-decoration:none; font-size:14px; font-weight:700;">Apply Now</a>
       </div>
     </div>
   </section>
-
   <section class="signup-section" id="signup">
     <h2>Get This Week's Deals in Your Inbox</h2>
     <p>New travel deals every week. Resorts, flights, tours, and more. No spam. Unsubscribe anytime.</p>
     <a href="https://deals.theresortcode.com/deals" class="signup-btn" target="_blank">Subscribe for Weekly Deals</a>
     <div class="signup-note">Check your spam folder to make sure you see our emails.</div>
   </section>
-
   <div class="social-bar">
     <h3>Big Resort Energy. Real Savings.</h3>
     <p>Follow @theresortcode for daily deal drops.</p>
@@ -226,7 +225,6 @@ if (!sessionStorage.getItem('trc_optin_done')) {
       <a href="https://pinterest.com/theresortcode" target="_blank" class="soc-btn">Pinterest</a>
     </div>
   </div>
-
   <footer>
     <div class="footer-top">
       <div class="f-logo">
@@ -249,6 +247,5 @@ if (!sessionStorage.getItem('trc_optin_done')) {
       Resort deals are shared by an Independent Travel Partner.
     </div>
   </footer>
-
 </body>
 </html>
