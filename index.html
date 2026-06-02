@@ -4,15 +4,6 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>The Resort Code — All the Resort. None of the Price Tag.</title>
-  <script>
-    var params = new URLSearchParams(window.location.search);
-    if (params.get('optin') === 'done') {
-      sessionStorage.setItem('trc_optin_done', 'true');
-    }
-    if (!sessionStorage.getItem('trc_optin_done')) {
-      window.location.href = 'https://deals.theresortcode.com/deals';
-    }
-  </script>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
   <style>
     :root {
