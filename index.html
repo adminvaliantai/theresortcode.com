@@ -234,7 +234,13 @@
   }
 </style>
 </head>
-<body>
+<body> 
+  <script>
+  var params = new URLSearchParams(window.location.search);
+  if (params.get('optin') === 'done') {
+    sessionStorage.setItem('trc_optin_done', '1');
+  }
+</script>
   <nav>
     <div class="nav-logo">
       <div class="nav-badge">TRC</div>
@@ -387,7 +393,7 @@
     <h2 class="trc-pop-title">Get This Week's Resort Deals</h2>
     <p class="trc-pop-sub">New deals every week starting at $79. Drop your info and we'll send you this week's best travel deals.</p>
 
-    <form id="trc-pop-form" action="YOUR_SYSTEME_OPTIN_URL_HERE" method="POST">
+    <form id="trc-pop-form" action="https://deals.theresortcode.com/deals" method="POST">
       <input class="trc-pop-input" type="text" name="first_name" placeholder="First name" required />
       <input class="trc-pop-input" type="email" name="email" placeholder="Email address" required />
       <button class="trc-pop-btn" type="submit">Send Me This Week's Deals →</button>
