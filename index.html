@@ -101,6 +101,136 @@
     .footer-bottom { color: #D4B896; font-size: 12px; line-height: 1.7; }
     @media(max-width: 640px) { nav { padding: 12px 20px; } .nav-links { display: none; } .section { padding: 48px 20px; } .hero { padding: 60px 20px; } }
   </style>
+<style>
+  #trc-popup-widget {
+    position: fixed;
+    top: 50%;
+    left: -420px;
+    transform: translateY(-50%);
+    width: 340px;
+    background: #F5EFE0;
+    border-radius: 18px;
+    padding: 28px 24px 22px;
+    box-shadow: 0 24px 64px rgba(0,0,0,0.18), 0 4px 16px rgba(0,0,0,0.10);
+    z-index: 9999;
+    transition: left 0.6s cubic-bezier(0.34, 1.15, 0.64, 1);
+    font-family: 'DM Sans', -apple-system, sans-serif;
+  }
+  #trc-popup-widget.trc-visible {
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  #trc-popup-widget.trc-hidden {
+    left: -420px;
+    transform: translateY(-50%);
+  }
+  #trc-popup-close {
+    position: absolute;
+    top: 14px;
+    right: 16px;
+    background: none;
+    border: none;
+    color: #aaa;
+    font-size: 18px;
+    cursor: pointer;
+    line-height: 1;
+    padding: 0;
+  }
+  #trc-popup-close:hover { color: #555; }
+  .trc-pop-badge {
+    display: inline-block;
+    background: #E8825A;
+    color: #fff;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+  }
+  .trc-pop-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    color: #1A6B7C;
+    font-size: 22px;
+    line-height: 1.2;
+    margin: 0 0 6px;
+    font-weight: 700;
+  }
+  .trc-pop-sub {
+    color: #6b6157;
+    font-size: 12px;
+    line-height: 1.6;
+    margin: 0 0 16px;
+  }
+  .trc-pop-input {
+    width: 100%;
+    box-sizing: border-box;
+    border: 1.5px solid #d5cfc3;
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-size: 13px;
+    font-family: inherit;
+    background: #fff;
+    color: #333;
+    margin-bottom: 8px;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .trc-pop-input:focus { border-color: #1A6B7C; }
+  .trc-pop-btn {
+    width: 100%;
+    background: #1A6B7C;
+    color: #F5EFE0;
+    border: none;
+    border-radius: 8px;
+    padding: 12px;
+    font-size: 13px;
+    font-weight: 500;
+    font-family: inherit;
+    cursor: pointer;
+    letter-spacing: 0.03em;
+    transition: background 0.2s;
+    margin-top: 2px;
+  }
+  .trc-pop-btn:hover { background: #155f6e; }
+  .trc-pop-fine {
+    text-align: center;
+    font-size: 10px;
+    color: #b0a89e;
+    margin: 8px 0 0;
+    line-height: 1.5;
+  }
+  .trc-pop-success {
+    text-align: center;
+    padding: 12px 0 8px;
+  }
+  .trc-pop-success-icon {
+    font-size: 32px;
+    margin-bottom: 10px;
+  }
+  .trc-pop-success h3 {
+    font-family: 'Playfair Display', Georgia, serif;
+    color: #1A6B7C;
+    font-size: 20px;
+    margin: 0 0 6px;
+  }
+  .trc-pop-success p {
+    color: #6b6157;
+    font-size: 12px;
+    line-height: 1.6;
+    margin: 0;
+  }
+  @media (max-width: 400px) {
+    #trc-popup-widget {
+      width: calc(100% - 32px);
+    }
+    #trc-popup-widget.trc-visible {
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+</style>
 </head>
 <body>
   <nav>
@@ -247,5 +377,68 @@
       Resort deals are shared by an Independent Travel Partner.
     </div>
   </footer>
+<div id="trc-popup-widget" role="dialog" aria-modal="true" aria-label="Get weekly resort deals">
+  <button id="trc-popup-close" aria-label="Close signup popup">✕</button>
+
+  <div id="trc-pop-form-view">
+    <div class="trc-pop-badge">weekly deals</div>
+    <h2 class="trc-pop-title">Get This Week's Resort Deals</h2>
+    <p class="trc-pop-sub">New deals every week starting at $79. Drop your info and we'll send you this week's best travel deals.</p>
+
+    <form id="trc-pop-form" action="YOUR_SYSTEME_OPTIN_URL_HERE" method="POST">
+      <input class="trc-pop-input" type="text" name="first_name" placeholder="First name" required />
+      <input class="trc-pop-input" type="email" name="email" placeholder="Email address" required />
+      <button class="trc-pop-btn" type="submit">Send Me This Week's Deals →</button>
+    </form>
+
+    <p class="trc-pop-fine">No spam. Unsubscribe anytime.<br>Check your spam folder for the first email.</p>
+  </div>
+
+  <div id="trc-pop-success-view" class="trc-pop-success" style="display:none;">
+    <div class="trc-pop-success-icon">🌴</div>
+    <h3>You're in!</h3>
+    <p>Check your inbox for this week's deals. See you at the resort.</p>
+  </div>
+</div>
+
+<script>
+  (function() {
+    var popup = document.getElementById('trc-popup-widget');
+    var closeBtn = document.getElementById('trc-popup-close');
+    var form = document.getElementById('trc-pop-form');
+    var formView = document.getElementById('trc-pop-form-view');
+    var successView = document.getElementById('trc-pop-success-view');
+    var shown = false;
+    var dismissed = false;
+
+    function showPopup() {
+      if (shown || dismissed) return;
+      shown = true;
+      popup.classList.add('trc-visible');
+    }
+
+    function hidePopup() {
+      dismissed = true;
+      popup.classList.remove('trc-visible');
+      popup.classList.add('trc-hidden');
+      try { sessionStorage.setItem('trc_popup_dismissed', '1'); } catch(e) {}
+    }
+
+    try {
+      if (sessionStorage.getItem('trc_popup_dismissed') === '1') return;
+    } catch(e) {}
+
+    closeBtn.addEventListener('click', hidePopup);
+
+    setTimeout(showPopup, 7000);
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      formView.style.display = 'none';
+      successView.style.display = 'block';
+      setTimeout(hidePopup, 3000);
+    });
+  })();
+</script>
 </body>
 </html>
