@@ -91,17 +91,16 @@
     .f-links a:hover { color: var(--coral); }
     .footer-bottom { color: #D4B896; font-size: 12px; line-height: 1.7; }
     @media(max-width: 640px) { nav { padding: 12px 20px; } .nav-links { display: none; } .section { padding: 48px 20px; } .hero { padding: 60px 20px; } }
-  </style>
-<style>
+    <style>
   #trc-popup-widget {
     position: fixed;
     top: 50%;
-    left: -420px;
+    left: -900px;
     transform: translateY(-50%);
-    width: 340px;
+    width: 580px;
     background: #F5EFE0;
-    border-radius: 18px;
-    padding: 28px 24px 22px;
+    border-radius: 20px;
+    padding: 48px 44px 40px;
     box-shadow: 0 24px 64px rgba(0,0,0,0.18), 0 4px 16px rgba(0,0,0,0.10);
     z-index: 9999;
     transition: left 0.6s cubic-bezier(0.34, 1.15, 0.64, 1);
@@ -112,17 +111,28 @@
     transform: translate(-50%, -50%);
   }
   #trc-popup-widget.trc-hidden {
-    left: -420px;
+    left: -900px;
     transform: translateY(-50%);
+  }
+  #trc-page-gate {
+    position: fixed;
+    inset: 0;
+    z-index: 9990;
+    background: transparent;
+    cursor: not-allowed;
+    display: none;
+  }
+  #trc-page-gate.trc-active {
+    display: block;
   }
   #trc-popup-close {
     position: absolute;
-    top: 14px;
-    right: 16px;
+    top: 16px;
+    right: 20px;
     background: none;
     border: none;
     color: #aaa;
-    font-size: 18px;
+    font-size: 22px;
     cursor: pointer;
     line-height: 1;
     padding: 0;
@@ -132,39 +142,39 @@
     display: inline-block;
     background: #E8825A;
     color: #fff;
-    font-size: 9px;
+    font-size: 11px;
     font-weight: 600;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    padding: 3px 10px;
+    padding: 5px 14px;
     border-radius: 20px;
-    margin-bottom: 10px;
+    margin-bottom: 14px;
   }
   .trc-pop-title {
     font-family: 'Playfair Display', Georgia, serif;
     color: #1A6B7C;
-    font-size: 22px;
+    font-size: 36px;
     line-height: 1.2;
-    margin: 0 0 6px;
+    margin: 0 0 10px;
     font-weight: 700;
   }
   .trc-pop-sub {
     color: #6b6157;
-    font-size: 12px;
+    font-size: 15px;
     line-height: 1.6;
-    margin: 0 0 16px;
+    margin: 0 0 24px;
   }
   .trc-pop-input {
     width: 100%;
     box-sizing: border-box;
     border: 1.5px solid #d5cfc3;
-    border-radius: 8px;
-    padding: 10px 12px;
-    font-size: 13px;
+    border-radius: 10px;
+    padding: 14px 16px;
+    font-size: 15px;
     font-family: inherit;
     background: #fff;
     color: #333;
-    margin-bottom: 8px;
+    margin-bottom: 12px;
     outline: none;
     transition: border-color 0.2s;
   }
@@ -174,48 +184,50 @@
     background: #1A6B7C;
     color: #F5EFE0;
     border: none;
-    border-radius: 8px;
-    padding: 12px;
-    font-size: 13px;
+    border-radius: 10px;
+    padding: 16px;
+    font-size: 16px;
     font-weight: 500;
     font-family: inherit;
     cursor: pointer;
     letter-spacing: 0.03em;
     transition: background 0.2s;
-    margin-top: 2px;
+    margin-top: 4px;
   }
   .trc-pop-btn:hover { background: #155f6e; }
   .trc-pop-fine {
     text-align: center;
-    font-size: 10px;
+    font-size: 12px;
     color: #b0a89e;
-    margin: 8px 0 0;
+    margin: 10px 0 0;
     line-height: 1.5;
   }
   .trc-pop-success {
     text-align: center;
-    padding: 12px 0 8px;
+    padding: 20px 0 12px;
   }
   .trc-pop-success-icon {
-    font-size: 32px;
-    margin-bottom: 10px;
+    font-size: 48px;
+    margin-bottom: 14px;
   }
   .trc-pop-success h3 {
     font-family: 'Playfair Display', Georgia, serif;
     color: #1A6B7C;
-    font-size: 20px;
-    margin: 0 0 6px;
+    font-size: 28px;
+    margin: 0 0 10px;
   }
   .trc-pop-success p {
     color: #6b6157;
-    font-size: 12px;
+    font-size: 15px;
     line-height: 1.6;
     margin: 0;
   }
-  @media (max-width: 400px) {
+  @media (max-width: 640px) {
     #trc-popup-widget {
       width: calc(100% - 32px);
+      padding: 32px 24px 28px;
     }
+    .trc-pop-title { font-size: 26px; }
     #trc-popup-widget.trc-visible {
       left: 50%;
       transform: translate(-50%, -50%);
@@ -368,9 +380,9 @@
       Resort deals are shared by an Independent Travel Partner.
     </div>
   </footer>
+<div id="trc-page-gate"></div>
 <div id="trc-popup-widget" role="dialog" aria-modal="true" aria-label="Get weekly resort deals">
   <button id="trc-popup-close" aria-label="Close signup popup">✕</button>
-
   <div id="trc-pop-form-view">
     <div class="trc-pop-badge">weekly deals</div>
     <h2 class="trc-pop-title">Get This Week's Resort Deals</h2>
@@ -390,10 +402,9 @@
     <h3>You're in!</h3>
     <p>Check your inbox for this week's deals. See you at the resort.</p>
   </div>
-</div>
-
 <script>
   (function() {
+    var gate = document.getElementById('trc-page-gate');
     var popup = document.getElementById('trc-popup-widget');
     var closeBtn = document.getElementById('trc-popup-close');
     var form = document.getElementById('trc-pop-form');
@@ -405,21 +416,30 @@
     function showPopup() {
       if (shown || dismissed) return;
       shown = true;
+      gate.classList.add('trc-active');
       popup.classList.add('trc-visible');
     }
 
     function hidePopup() {
       dismissed = true;
+      gate.classList.remove('trc-active');
       popup.classList.remove('trc-visible');
       popup.classList.add('trc-hidden');
       try { sessionStorage.setItem('trc_popup_dismissed', '1'); } catch(e) {}
     }
 
+    function unlockPage() {
+      gate.classList.remove('trc-active');
+      gate.style.display = 'none';
+      try { sessionStorage.setItem('trc_optin_done', '1'); } catch(e) {}
+    }
+
     try {
       if (sessionStorage.getItem('trc_popup_dismissed') === '1') return;
+      if (sessionStorage.getItem('trc_optin_done') === '1') return;
     } catch(e) {}
 
-    closeBtn.addEventListener('click', hidePopup);
+    closeBtn.style.display = 'none';
 
     setTimeout(showPopup, 7000);
 
@@ -427,6 +447,7 @@
       e.preventDefault();
       formView.style.display = 'none';
       successView.style.display = 'block';
+      unlockPage();
       setTimeout(hidePopup, 3000);
     });
   })();
